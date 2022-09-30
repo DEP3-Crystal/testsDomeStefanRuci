@@ -1,0 +1,78 @@
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
+
+//The deposit and withdraw methods will not accept negative numbers. ok
+//Account cannot overstep its overdraft limit. ok
+//The deposit and withdraw methods will deposit or withdraw the correct amount, respectively.
+//The withdraw and deposit methods return the correct results.
+public class AccountTest {
+    private double epsilon = 1e-6;
+
+    @Test
+    public void accountCannotHaveNegativeOverdraftLimit() {
+        Account account = new Account(-20);
+
+        Assert.assertEquals(0d, account.getOverdraftLimit(), epsilon);
+    }
+
+    @Test
+    public void accountCannotHaveNegativedeposit() {
+        Account account = new Account(-20);
+
+        Assert.assertEquals(false, account.deposit(-5));
+    }
+
+    @Test
+    public void accountCannotHaveNegativeOnWithdraw() {
+        Account account = new Account(-20);
+
+        Assert.assertEquals(false, account.withdraw(-50));
+    }
+
+    @Test
+
+    public void accountOverlimit() {
+        Account account = new Account(20);
+
+        Assert.assertEquals(false, account.withdraw(50));
+    }
+
+    @Test
+
+    public void accountDepositOK() {
+        Account account = new Account(20);
+        account.deposit(500);
+        double guess = 500;
+
+        assertEquals(guess, account.getBalance());
+    }
+
+    @Test
+    public void accountWithdrawOK() {
+        Account account = new Account(501);
+
+        account.deposit(500);
+        account.withdraw(50);
+        double guess = 450;
+        assertEquals(guess, account.getBalance());
+    }
+  
+    @Test
+    public void accountWithdrawCorrect() {
+        Account account = new Account(501);
+
+
+        assertEquals(true, account.deposit(50));
+    }
+    @Test
+    public void accountBalanceCorrect() {
+        Account account = new Account(501);
+
+        assertEquals(true, account.withdraw(50));
+    }
+
+
+}

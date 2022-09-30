@@ -1,0 +1,41 @@
+public class UserInput {
+
+    public static class TextInput {
+        String input="";
+
+        public void add (char c) {
+this.input+=c;
+        } //- adds the given character to the current value
+
+        public String getValue() {
+            return input;
+        }
+        // - returns the current value
+    }
+
+    public static class NumericInput extends TextInput {
+        @Override
+        public void add(char c) {
+            try {
+                super.input+=String.valueOf(Integer.parseInt(String.valueOf(c)));
+            }
+            catch (NumberFormatException ignored){
+
+            }
+
+        }
+
+        @Override
+        public String getValue() {
+            return super.input;
+        }
+    }
+
+    public static void main(String[] args) {
+        TextInput input = new NumericInput();
+        input.add('1');
+        input.add('a');
+        input.add('0');
+        System.out.println(input.getValue());
+    }
+}
