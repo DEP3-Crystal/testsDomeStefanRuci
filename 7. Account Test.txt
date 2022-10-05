@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-//The deposit and withdraw methods will not accept negative numbers. ok
-//Account cannot overstep its overdraft limit. ok
-//The deposit and withdraw methods will deposit or withdraw the correct amount, respectively.
-//The withdraw and deposit methods return the correct results.
 public class AccountTest {
     private double epsilon = 1e-6;
 
