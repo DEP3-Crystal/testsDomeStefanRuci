@@ -30,13 +30,8 @@ public class IceCreamMachine {
 
             }
         }
-        //if (this.ingredients.length==0&&this.toppings.length==0){
-         //   throw new UnsupportedOperationException("Waiting to be implemented");
-
-        //}
+        
         return list;
-
-//
     }
 
     public static void main(String[] args) {
