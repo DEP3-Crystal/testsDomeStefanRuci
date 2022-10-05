@@ -27,7 +27,10 @@ public class DecoratorStream extends OutputStream {
 
     @Override
     public void write(byte[] b, int off, int len) throws IOException {
+     if (prefix != null){
          stream.write(prefix.getBytes(), 0, prefix.getBytes().length);
+   prefix=null;
+      }
         for (int i = 0 ; i < len ; i++) {
           stream.write(b[off + i]);
         }
